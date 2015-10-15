@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'alexander@shreyner.ru',
+    'autor'=>'Alexander Shreyner',
+    'projectName'=>'Target'
 ];

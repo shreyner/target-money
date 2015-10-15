@@ -22,7 +22,10 @@ $config = [
         ],
         'urlManager'=>[
             'enablePrettyUrl'=>true,
-            'showScriptName'=>false
+            'showScriptName'=>false,
+            'rules'=>[
+              '<action>'=>'my/<action>',
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

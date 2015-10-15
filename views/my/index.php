@@ -2,7 +2,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 ?>
-<h1>my/index</h1>
+<h1 class="page-header">Home</h1>
 <p>
   <?= Html::a('Create new User',['create-user'],['class'=>'btn btn-primary']) ?>
 </p>

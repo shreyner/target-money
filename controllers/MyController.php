@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use yii\helpers\Url;
 
 use app\models\Target;
@@ -15,6 +16,21 @@ class MyController extends \yii\web\Controller
     public function behaviors()
     {
       return[
+        'access'=>[
+          'class'=>AccessControl::className(),
+          'only'=>['create-user','add-target','view-target','settings','delete-user','delete-target'],
+          'rules'=>[
+            [
+              'actions'=>['index'],
+              'allow'=>true,
+              'roles'=>['*']
+            ],
+            [
+              'allow'=>true,
+              'roles'=>['@']
+            ],
+          ],
+        ],
         'verbs'=>[
           'class'=>VerbFilter::className(),
           'actions'=>[
