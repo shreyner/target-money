@@ -43,9 +43,7 @@ class MyController extends \yii\web\Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->id_target=$id;
-            Yii::info($id);
             if ($model->validate() && $model->save()) {
-                // form inputs are valid, do something here
                 return $this->goHome();
             }
         }
@@ -54,6 +52,17 @@ class MyController extends \yii\web\Controller
             'model' => $model,
             'user'=>$user
         ]);
+    }
+
+    public function actionViewTarget($id = null)
+    {
+        $model = HistoryAchiev::findAll(['id_target'=>$id]);
+
+        if ($model[0]->id === null) {
+            throw new NotFoundHttpException('Not found user');
+        };
+
+        return $this->render('viewTarget',['model'=>$model]);
     }
 
 }
