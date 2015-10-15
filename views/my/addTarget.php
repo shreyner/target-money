@@ -9,13 +9,21 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="my-addTarget">
     <h1 class="page-header">User: <small><?= $user->name ?></small></h1>
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['class' => 'form-horizontal'],
+        'fieldConfig' => [
+            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+        ],
+      ]); ?>
 
-        <?= $form->field($model, 'money') ?>
+        <?= $form->field($model, 'money')->input('number') ?>
         <?= $form->field($model, 'description') ?>
 
-        <div class="form-group">
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+        <div class="col-md-3 col-md-offset-1">
+          <div class="form-group">
+              <?= Html::submitButton('Add', ['class' => 'btn btn-primary btn-block']) ?>
+          </div>
         </div>
     <?php ActiveForm::end(); ?>
 

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 <p>
   <?= Html::a('Create new User',['create-user'],['class'=>'btn btn-primary']) ?>
 </p>
-<table class="table table-striped table-bordered table-responsive">
+<table class="table table-striped table-responsive">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,7 +26,7 @@ use yii\helpers\Html;
             </div>
           </div>
         </td>
-        <td class="col-md-2"><?= Html::a('Add',['add-target','id'=>$value->id]) ?> <?= Html::a('View',['view-target','id'=>$value->id]) ?> <?= Html::a('Settings',['settings','id'=>$value->id]) ?></td>
+        <td class="col-md-2"><?= Html::a('Add',['add-target','id'=>$value->id]) ?> <?= Html::a('View',['view-target','id'=>$value->id]) ?> <?= Html::a('Settings',['settings','id'=>$value->id]) ?> Delete</td>
       </tr>
     <?php endforeach; ?>
   </tbody>

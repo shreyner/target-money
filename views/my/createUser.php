@@ -7,16 +7,28 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Target */
 /* @var $form ActiveForm */
 ?>
-<div class="my-createUser">
+<div class="row">
 
-    <?php $form = ActiveForm::begin(); ?>
+  <h1 class="page-header">Create/Settings user</h1>
+  <div class="my-createUser">
 
-        <?= $form->field($model, 'name') ?>
-        <?= $form->field($model, 'target') ?>
-    
-        <div class="form-group">
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-        </div>
-    <?php ActiveForm::end(); ?>
+      <?php $form = ActiveForm::begin([
+          'options' => ['class' => 'form-horizontal'],
+          'fieldConfig' => [
+              'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+              'labelOptions' => ['class' => 'col-lg-1 control-label'],
+          ],
+        ]); ?>
 
-</div><!-- my-createUser -->
+          <?= $form->field($model, 'name') ?>
+          <?= $form->field($model, 'target')->input('number') ?>
+
+          <div class="col-lg-3 col-lg-offset-1">
+            <div class="form-group">
+                <?= Html::submitButton('Create', ['class' => 'btn btn-primary btn-block']) ?>
+            </div>
+          </div>
+      <?php ActiveForm::end(); ?>
+
+  </div><!-- my-createUser -->
+</div>
