@@ -15,6 +15,7 @@ use Yii;
  */
 class Target extends \yii\db\ActiveRecord
 {
+    public $itog;
     /**
      * @inheritdoc
      */

@@ -16,6 +16,7 @@ use Yii;
  */
 class HistoryAchiev extends \yii\db\ActiveRecord
 {
+    public $itog;
     /**
      * @inheritdoc
      */
