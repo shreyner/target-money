@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 
 use app\models\Target;
 use app\models\HistoryAchiev;
@@ -17,7 +18,8 @@ class MyController extends \yii\web\Controller
         'verbs'=>[
           'class'=>VerbFilter::className(),
           'actions'=>[
-            'delete-user'=>['post']
+            'delete-user'=>['post'],
+            'delete-target'=>['post']
           ],
         ],
       ];
@@ -75,6 +77,8 @@ class MyController extends \yii\web\Controller
             throw new NotFoundHttpException('Not found user');
         };
 
+        Url::remember(['view-target','id'=>$id]);
+
         return $this->render('viewTarget',['model'=>$model]);
     }
 
@@ -107,6 +111,18 @@ class MyController extends \yii\web\Controller
       $model->delete();
 
       return $this->goHome();
+    }
+
+    public function actionDeleteTarget($id = null)
+    {
+      $model = HistoryAchiev::findOne($id);
+
+      if ($model === null) {
+          throw new NotFoundHttpException('Not found');
+      };
+      $model->delete();
+
+      return $this->goBack();
     }
 
 }

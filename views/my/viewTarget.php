@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Html;
+?>
 <h1 class="page-header">User view: <small><?= $model[0]->idTarget->name ?></small></h1>
 <table class="table table-striped table-responsive">
   <thead>
@@ -14,7 +17,7 @@
         <td class="col-md-3"><?= $key+1 ?></td>
         <td><?= $value->description ?></td>
         <td class="col-md-2"><?= $value->money ?></td>
-        <td class="col-md-1">Delete</td>
+        <td class="col-md-1"><?= Html::a('Delete',['delete-target','id'=>$value->id],['data-method'=>'post']); ?></td>
       </tr>
     <?php endforeach; ?>
   </tbody>
