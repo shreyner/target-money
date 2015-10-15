@@ -4,12 +4,25 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 use app\models\Target;
 use app\models\HistoryAchiev;
 
 class MyController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+      return[
+        'verbs'=>[
+          'class'=>VerbFilter::className(),
+          'actions'=>[
+            'delete-user'=>['post']
+          ],
+        ],
+      ];
+    }
+
     public function actionIndex()
     {
         $model = Target::find()->select(['target.*','sum(historyAchiev.money) as itog'])->joinWith('historyAchievs')->groupBy('target.name')->all();
@@ -82,6 +95,18 @@ class MyController extends \yii\web\Controller
       return $this->render('createUser', [
           'model' => $model,
       ]);
+    }
+
+    public function actionDeleteUser($id = null)
+    {
+      $model = Target::findOne($id);
+
+      if ($model === null) {
+          throw new NotFoundHttpException('Not found user');
+      };
+      $model->delete();
+
+      return $this->goHome();
     }
 
 }

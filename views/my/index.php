@@ -26,7 +26,7 @@ use yii\helpers\Html;
             </div>
           </div>
         </td>
-        <td class="col-md-2"><?= Html::a('Add',['add-target','id'=>$value->id]) ?> <?= Html::a('View',['view-target','id'=>$value->id]) ?> <?= Html::a('Settings',['settings','id'=>$value->id]) ?> Delete</td>
+        <td class="col-md-2"><?= Html::a('Add',['add-target','id'=>$value->id]) ?> <?= Html::a('View',['view-target','id'=>$value->id]) ?> <?= Html::a('Settings',['settings','id'=>$value->id]) ?> <?= Html::a('Delete',['delete-user','id'=>$value->id],['data-method'=>'post']); ?></td>
       </tr>
     <?php endforeach; ?>
   </tbody>
