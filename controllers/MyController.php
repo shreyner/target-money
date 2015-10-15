@@ -65,4 +65,23 @@ class MyController extends \yii\web\Controller
         return $this->render('viewTarget',['model'=>$model]);
     }
 
+    public function actionSettings($id = null)
+    {
+      $model = Target::findOne($id);
+
+      if ($model === null) {
+          throw new NotFoundHttpException('Not found user');
+      };
+
+      if ($model->load(Yii::$app->request->post())) {
+          if ($model->validate() && $model->save()) {
+              return $this->goHome();
+          }
+      }
+
+      return $this->render('createUser', [
+          'model' => $model,
+      ]);
+    }
+
 }
