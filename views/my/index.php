@@ -26,7 +26,7 @@ use yii\helpers\Html;
             </div>
           </div>
         </td>
-        <td class="col-md-1">Добавить</td>
+        <td class="col-md-2"><?= Html::a('Add',['add-target','id'=>$value->id]) ?> View Settings</td>
       </tr>
     <?php endforeach; ?>
   </tbody>
