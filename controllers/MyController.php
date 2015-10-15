@@ -14,4 +14,19 @@ class MyController extends \yii\web\Controller
         return $this->render('index',['model'=>$model]);
     }
 
+    public function actionCreateUser()
+    {
+        $model = new Target();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate() && $model->save()) {
+                return $this->goHome();
+            }
+        }
+
+        return $this->render('createUser', [
+            'model' => $model,
+        ]);
+    }
+
 }

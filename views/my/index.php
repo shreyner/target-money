@@ -1,8 +1,11 @@
 <?php
 /* @var $this yii\web\View */
+use yii\helpers\Html;
 ?>
 <h1>my/index</h1>
-
+<p>
+  <?= Html::a('Create new User',['create-user'],['class'=>'btn btn-primary']) ?>
+</p>
 <table class="table table-striped table-bordered table-responsive">
   <thead>
     <tr>
