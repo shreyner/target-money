@@ -33,7 +33,7 @@ class HistoryAchiev extends \yii\db\ActiveRecord
         return [
             [['money', 'id_target'], 'required'],
             [['money', 'id_target'], 'integer'],
-            [['money'],'number','min'=>1,'max'=>2147483646]
+            [['money'],'number','min'=>1,'max'=>2147483646],
             [['description'], 'string', 'max' => 50]
         ];
     }
