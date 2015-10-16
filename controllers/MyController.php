@@ -88,9 +88,8 @@ class MyController extends \yii\web\Controller
     public function actionViewTarget($id = null)
     {
         $model = HistoryAchiev::findAll(['id_target'=>$id]);
-
-        if ($model[0]->id === null) {
-            throw new NotFoundHttpException('Not found user');
+        if (count($model) === 0) {
+            return $this->render('viewTarget',['model'=>false]);
         };
 
         Url::remember(['view-target','id'=>$id]);

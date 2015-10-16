@@ -12,13 +12,22 @@ use yii\helpers\Html;
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($model as $key => $value): ?>
+    <?php if ($model): ?>
+      <?php foreach ($model as $key => $value): ?>
+        <tr>
+          <td class="col-md-3"><?= $key+1 ?></td>
+          <td><?= $value->description ?></td>
+          <td class="col-md-2"><?= $value->money ?></td>
+          <td class="col-md-1"><?= Html::a('Delete',['delete-target','id'=>$value->id],['data-method'=>'post']); ?></td>
+        </tr>
+      <?php endforeach; ?>
+    <?php else: ?>
       <tr>
-        <td class="col-md-3"><?= $key+1 ?></td>
-        <td><?= $value->description ?></td>
-        <td class="col-md-2"><?= $value->money ?></td>
-        <td class="col-md-1"><?= Html::a('Delete',['delete-target','id'=>$value->id],['data-method'=>'post']); ?></td>
+        <td style="text-align:center">
+          <h1>No record found</h1>
+        </td>
       </tr>
-    <?php endforeach; ?>
+    <?php endif; ?>
+
   </tbody>
 </table>
