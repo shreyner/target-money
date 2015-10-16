@@ -32,6 +32,7 @@ class Target extends \yii\db\ActiveRecord
         return [
             [['name', 'target'], 'required'],
             [['target'], 'integer'],
+            [['target'],'number','min'=>1,'max'=>2147483646],
             [['name'], 'string', 'max' => 30],
             [['name'], 'unique']
         ];
