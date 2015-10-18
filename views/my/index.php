@@ -11,6 +11,7 @@ use yii\helpers\Html;
     <tr>
       <th>Name</th>
       <th>Process</th>
+      <th>Finish</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@ use yii\helpers\Html;
             </div>
           </div>
         </td>
+        <td class="col-md-1"><?= $value->terms_date ?></td>
         <td class="col-md-2"><?= Html::a('Add',['add-target','id'=>$value->id]) ?> <?= Html::a('View',['view-target','id'=>$value->id]) ?> <?= Html::a('Settings',['settings','id'=>$value->id]) ?> <?= Html::a('Delete',['delete-user','id'=>$value->id],['data-method'=>'post']); ?></td>
       </tr>
     <?php endforeach; ?>

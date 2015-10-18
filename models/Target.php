@@ -50,8 +50,8 @@ class Target extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'target' => 'Target',
-            'create_up' => 'Create Up',
-            'terms_date' => 'Terms',
+            'create_up' => 'Start',
+            'terms_date' => 'Finish',
         ];
     }
 
