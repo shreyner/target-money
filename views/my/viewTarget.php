@@ -1,7 +1,11 @@
 <?php
 use yii\helpers\Html;
 ?>
-<h1 class="page-header">User view: <small><?= ($model !== false)?'No name':$model[0]->idTarget->name; ?></small></h1>
+<?php if ($model): ?>
+  <h1 class="page-header">User view: <small><?= $model[0]->idTarget->name; ?></small></h1>
+<?php else: ?>
+  <h1 class="page-header">User view:</h1>
+<?php endif; ?>
 <table class="table table-striped table-responsive">
   <thead>
     <tr>
