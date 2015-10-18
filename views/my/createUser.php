@@ -22,6 +22,8 @@ use yii\widgets\ActiveForm;
 
           <?= $form->field($model, 'name') ?>
           <?= $form->field($model, 'target')->input('number') ?>
+          <?= $form->field($model, 'create_up')->input('date') ?>
+          <?= $form->field($model, 'terms_date')->input('date') ?>
 
           <div class="col-lg-3 col-lg-offset-1">
             <div class="form-group">

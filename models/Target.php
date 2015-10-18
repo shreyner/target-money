@@ -5,11 +5,13 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "target".
+ * This is the model class for table "{{%target}}".
  *
  * @property integer $id
  * @property string $name
  * @property integer $target
+ * @property string $create_up
+ * @property string $terms_date
  *
  * @property HistoryAchiev[] $historyAchievs
  */
@@ -21,7 +23,7 @@ class Target extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'target';
+        return '{{%target}}';
     }
 
     /**
@@ -30,8 +32,9 @@ class Target extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'target'], 'required'],
+            [['name', 'target','create_up', 'terms_date'], 'required'],
             [['target'], 'integer'],
+            [['create_up', 'terms_date'], 'safe'],
             [['target'],'number','min'=>1,'max'=>2147483646],
             [['name'], 'string', 'max' => 30],
             [['name'], 'unique']
@@ -47,6 +50,8 @@ class Target extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'target' => 'Target',
+            'create_up' => 'Create Up',
+            'terms_date' => 'Terms',
         ];
     }
 

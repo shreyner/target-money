@@ -8,6 +8,7 @@ use yii\helpers\Html;
       <th>№</th>
       <th>Description</th>
       <th>Money</th>
+      <th>Date</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@ use yii\helpers\Html;
           <td class="col-md-3"><?= $key+1 ?></td>
           <td><?= $value->description ?></td>
           <td class="col-md-2"><?= $value->money ?></td>
+          <td><?= $value->create_up ?></td>
           <td class="col-md-1"><?= Html::a('Delete',['delete-target','id'=>$value->id],['data-method'=>'post']); ?></td>
         </tr>
       <?php endforeach; ?>

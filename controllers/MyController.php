@@ -18,14 +18,14 @@ class MyController extends \yii\web\Controller
       return[
         'access'=>[
           'class'=>AccessControl::className(),
-          'only'=>['create-user','add-target','view-target','settings','delete-user','delete-target'],
           'rules'=>[
             [
               'actions'=>['index'],
               'allow'=>true,
-              'roles'=>['*']
+              'roles'=>['?','@']
             ],
             [
+              'actions'=>['add-target','create-user','view-target','settings','delete-user','delete-target'],
               'allow'=>true,
               'roles'=>['@']
             ],
@@ -44,7 +44,6 @@ class MyController extends \yii\web\Controller
     public function actionIndex()
     {
         $model = Target::find()->select(['target.*','sum(historyAchiev.money) as itog'])->joinWith('historyAchievs')->groupBy('target.name')->all();
-        Yii::info($model);
         return $this->render('index',['model'=>$model]);
     }
 
