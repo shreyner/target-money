@@ -88,7 +88,7 @@ class MyController extends \yii\web\Controller
     public function actionViewTarget($id = null)
     {
         $model = HistoryAchiev::findAll(['id_target'=>$id]);
-        if (count($model) === 0) {
+        if ($model === null) {
             return $this->render('viewTarget',['model'=>false]);
         };
 
